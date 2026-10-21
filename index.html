@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAP — Pick A Plate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen">
+        <h1>PAP</h1>
+        <p>PICK A PLATE</p>
+    </div>
+
+    <main id="main-page">
+        <!-- HEADER -->
+        <header>
+            <button id="more-button" class="more-button" aria-label="More options">
+                <span></span><span></span><span></span>
+            </button>
+
+            <h1 class="logo">Pick A Plate</h1>
+
+            <button id="filter-button" class="filter-icon-button" aria-label="Open filters">
+                <svg viewBox="0 0 24 24" width="30" height="30"
+                    fill="none" stroke="#341f1a" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <path d="M3 4h18l-7 8v7l-4 2v-9L3 4z"></path>
+                </svg>
+            </button>
+        </header>
+
+        <!-- MORE SIDEBAR -->
+        <div id="more-overlay" class="more-overlay" aria-hidden="true">
+            <aside id="more-sidebar" class="more-sidebar"
+                role="dialog" aria-modal="true" aria-label="More menu">
+
+                <div class="more-sidebar-header">
+                    <h2>PICK A PLATE</h2>
+                    <button id="close-more" class="close-more"
+                        type="button" aria-label="Close menu">×</button>
+                </div>
+
+                <div class="more-sidebar-divider"></div>
+
+                <nav class="more-sidebar-nav">
+                    <button id="restaurant-recommendations-button"
+                        class="more-menu-item" type="button">
+                        <span class="more-menu-number">01</span>
+                        <span class="more-menu-text">Restaurant Recommendations</span>
+                        <span class="more-menu-arrow">↗</span>
+                    </button>
+
+                    <button id="feedback-button" class="more-menu-item" type="button">
+                        <span class="more-menu-number">02</span>
+                        <span class="more-menu-text">Feedback</span>
+                        <span class="more-menu-arrow">↗</span>
+                    </button>
+                </nav>
+
+                <div class="more-sidebar-footer">
+                    <span>PAP — PICK A PLATE</span>
+                </div>
+            </aside>
+        </div>
+
+        <!-- RESTAURANT RECOMMENDATION PAGE -->
+        <section id="restaurant-recommendation-page"
+            class="recommendation-page" aria-hidden="true">
+
+            <div class="recommendation-container">
+                <div class="recommendation-header">
+                    <h2>Restaurant Recommendation</h2>
+                    <button id="close-recommendation-page"
+                        class="recommendation-close" type="button"
+                        aria-label="Back to home">×</button>
+                </div>
+
+                <div class="recommendation-divider"></div>
+
+                <form id="restaurant-recommendation-form">
+                    <div class="recommendation-field">
+                        <label for="recommendation-submitter">Submitter Name</label>
+                        <input id="recommendation-submitter" name="submitter"
+                            type="text" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="recommendation-field">
+                        <label for="recommendation-restaurant-name">Restaurant Name</label>
+                        <input id="recommendation-restaurant-name" name="restaurantName"
+                            type="text" placeholder="Enter restaurant name" required>
+                    </div>
+
+                    <div class="recommendation-field">
+                        <label for="recommendation-type">Restaurant Type</label>
+                        <select id="recommendation-type" name="restaurantType" required>
+                            <option value="" disabled selected>Select restaurant type</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="cafe">Cafe</option>
+                            <option value="bar">Bar</option>
+                            <option value="food_court">Food Court</option>
+                        </select>
+                    </div>
+
+                    <div class="recommendation-field">
+                        <label for="recommendation-cuisine">Cuisine Nationality</label>
+                        <select id="recommendation-cuisine" name="cuisine" required>
+                            <option value="" disabled selected>Select cuisine nationality</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="korean">Korean</option>
+                            <option value="thai">Thai</option>
+                            <option value="indian">Indian</option>
+                            <option value="italian">Italian</option>
+                            <option value="vietnamese">Vietnamese</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="french">French</option>
+                            <option value="american">American</option>
+                            <option value="mediterranean">Mediterranean</option>
+                            <option value="seafood">Seafood</option>
+                        </select>
+                    </div>
+
+                    <div class="recommendation-field">
+                        <label>Opening Hours</label>
+
+                        <label class="open-24-hours-option" for="open-24-hours">
+                            <input id="open-24-hours" name="open24Hours" type="checkbox">
+                            <span>Open 24 Hours</span>
+                        </label>
+
+                        <div id="recommendation-hours-fields" class="hours-fields">
+                            <input id="recommendation-opening-time" name="openingTime"
+                                type="time" aria-label="Opening time" required>
+                            <span class="hours-separator">—</span>
+                            <input id="recommendation-closing-time" name="closingTime"
+                                type="time" aria-label="Closing time" required>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-field">
+                        <label for="recommendation-location">Restaurant Location</label>
+                        <input id="recommendation-location" name="location"
+                            type="text" placeholder="Enter restaurant address" required>
+                    </div>
+
+                    <div class="recommendation-field">
+                        <label for="recommendation-details">Additional Details</label>
+                        <textarea id="recommendation-details" name="details"
+                            rows="5" placeholder="Enter additional restaurant details"></textarea>
+                    </div>
+
+                    <button id="submit-recommendation" class="recommendation-submit"
+                        type="submit">SUBMIT</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- FEEDBACK PAGE -->
+        <section id="feedback-page"
+            class="recommendation-page feedback-page" aria-hidden="true">
+
+            <div class="recommendation-container">
+                <div class="recommendation-header">
+                    <h2>Feedback</h2>
+                    <button id="close-feedback-page"
+                        class="recommendation-close" type="button"
+                        aria-label="Back to home">×</button>
+                </div>
+
+                <div class="recommendation-divider"></div>
+
+                <form id="feedback-form">
+                    <div class="recommendation-field">
+                        <label for="feedback-name">Name</label>
+                        <input id="feedback-name" name="name" type="text"
+                            placeholder="Enter your name"
+                            autocomplete="name" required>
+                    </div>
+
+                    <div class="recommendation-field">
+                        <label for="feedback-email">Email</label>
+                        <input id="feedback-email" name="email" type="email"
+                            placeholder="Enter your email address"
+                            autocomplete="email" required>
+                    </div>
+
+                    <div class="recommendation-field">
+                        <label for="feedback-problem">Problem / Feedback</label>
+                        <textarea id="feedback-problem" name="problem" rows="5"
+                            placeholder="Describe the problem you encountered or share your feedback"
+                            required></textarea>
+                    </div>
+
+                    <button id="submit-feedback" class="recommendation-submit"
+                        type="submit">SUBMIT</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ROULETTE -->
+        <section class="roulette-section">
+            <p class="subtitle">LET US PICK IT FOR U</p>
+
+            <div class="slot-machine">
+                <div class="slot-window">
+                    <span id="slot-one">P</span>
+                    <span id="slot-two">A</span>
+                    <span id="slot-three">P</span>
+                </div>
+                <button id="spin-button" type="button">SPIN</button>
+            </div>
+
+            <p class="instruction">TO BE YOUR FAV MEAL!</p>
+        </section>
+
+        <!-- FILTER MODAL -->
+        <div id="filter-modal" class="popup-overlay" aria-hidden="true">
+            <section class="filter-card" role="dialog" aria-modal="true"
+                aria-labelledby="filter-title">
+
+                <button id="close-filter" class="filter-close"
+                    type="button" aria-label="Close filters">×</button>
+
+                <h2 id="filter-title" class="filter-title">FILTER</h2>
+                <div class="filter-divider"></div>
+
+                <section class="filter-group">
+                    <h3>DISTANCE :</h3>
+                    <div class="checkbox-list" data-choice-group="distance">
+                        <label class="check-option">
+                            <input type="checkbox" name="distance" value="1">
+                            <span class="custom-checkbox"></span><span>< 1 km</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="distance" value="3">
+                            <span class="custom-checkbox"></span><span>< 3 km</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="distance" value="5">
+                            <span class="custom-checkbox"></span><span>< 5 km</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="distance" value="10">
+                            <span class="custom-checkbox"></span><span>< 10 km</span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="filter-group">
+                    <h3>RATING :</h3>
+                    <div class="checkbox-list" data-choice-group="rating">
+                        <label class="check-option">
+                            <input type="checkbox" name="rating" value="3">
+                            <span class="custom-checkbox"></span><span>★ 3+</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="rating" value="3.5">
+                            <span class="custom-checkbox"></span><span>★ 3.5+</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="rating" value="4">
+                            <span class="custom-checkbox"></span><span>★ 4+</span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="filter-group">
+                    <h3>TYPE :</h3>
+                    <div class="checkbox-list" data-choice-group="types">
+                        <label class="check-option">
+                            <input type="checkbox" name="types" value="restaurant">
+                            <span class="custom-checkbox"></span><span>Restaurant</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="types" value="cafe">
+                            <span class="custom-checkbox"></span><span>Cafe</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="types" value="bar">
+                            <span class="custom-checkbox"></span><span>Bar</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="types" value="food_court">
+                            <span class="custom-checkbox"></span><span>Food Court</span>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="filter-group">
+                    <h3>CUISINE :</h3>
+                    <div class="checkbox-list" data-choice-group="cuisine">
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="chinese">
+                            <span class="custom-checkbox"></span><span>Chinese</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="japanese">
+                            <span class="custom-checkbox"></span><span>Japanese</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="korean">
+                            <span class="custom-checkbox"></span><span>Korean</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="thai">
+                            <span class="custom-checkbox"></span><span>Thai</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="indian">
+                            <span class="custom-checkbox"></span><span>Indian</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="italian">
+                            <span class="custom-checkbox"></span><span>Italian</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="vietnamese">
+                            <span class="custom-checkbox"></span><span>Vietnamese</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="mexican">
+                            <span class="custom-checkbox"></span><span>Mexican</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="french">
+                            <span class="custom-checkbox"></span><span>French</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="american">
+                            <span class="custom-checkbox"></span><span>American</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="seafood">
+                            <span class="custom-checkbox"></span><span>Seafood</span>
+                        </label>
+                        <label class="check-option">
+                            <input type="checkbox" name="cuisine" value="mediterranean">
+                            <span class="custom-checkbox"></span><span>Mediterranean</span>
+                        </label>
+                    </div>
+                </section>
+
+                <div class="filter-actions">
+                    <button id="reset-filters" class="secondary-button" type="button">
+                        RESET
+                    </button>
+                    <button id="apply-filters" class="primary-button" type="button">
+                        APPLY FILTERS
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- NO MATCH FOUND -->
+        <div id="no-match-modal" class="popup-overlay" aria-hidden="true">
+            <section class="no-match-card" role="alertdialog" aria-modal="true"
+                aria-labelledby="no-match-title">
+
+                <button id="close-no-match" class="close-button"
+                    type="button" aria-label="Close">×</button>
+
+                <h2 id="no-match-title">NO MATCH FOUND ˙◠˙</h2>
+
+                <p>
+                    We couldn’t find a restaurant that matches your selected preferences.
+                    Please adjust your filters and try again.
+                </p>
+
+                <div class="filter-actions">
+                    <button id="edit-filters" class="primary-button" type="button">
+                        EDIT FILTERS
+                    </button>
+                    <button id="clear-from-no-match" class="secondary-button" type="button">
+                        CLEAR FILTERS
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- RESTAURANT RESULT -->
+        <div id="restaurant-popup" class="popup-overlay" aria-hidden="true">
+            <div class="restaurant-card">
+                <button id="close-popup" class="close-button"
+                    type="button" aria-label="Close restaurant">×</button>
+
+                <div class="restaurant-image">
+                    <img id="restaurant-photo" src="" alt="Restaurant">
+                    <span id="image-placeholder">RESTAURANT IMAGE</span>
+                </div>
+
+                <div class="restaurant-info">
+                    <p class="result-label">WE RECOMMEND...</p>
+                    <h2 id="restaurant-name">Restaurant Name</h2>
+                    <p id="restaurant-cuisine">Cuisine Type</p>
+
+                    <div class="restaurant-rating">
+                        <span>★</span>
+                        <span id="restaurant-rating">--</span>
+                        <span id="restaurant-reviews">(Reviews)</span>
+                    </div>
+
+                    <p id="restaurant-distance">Distance: --</p>
+
+                    <a id="google-maps-link" href="#" target="_blank"
+                        rel="noopener noreferrer">OPEN IN GOOGLE MAPS ↗</a>
+
+                    <button id="spin-again-button" type="button">SPIN AGAIN</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- RESTAURANT SUCCESS POPUP -->
+    <div id="submission-success-popup" class="success-popup-overlay" aria-hidden="true">
+        <div class="success-popup" role="dialog" aria-modal="true"
+            aria-labelledby="success-popup-title">
+            <div class="success-popup-icon" aria-hidden="true">✓</div>
+            <h2 id="success-popup-title">Submission Successful!</h2>
+            <p>Thank you for recommending a restaurant to PAP.</p>
+            <button type="button" id="close-success-popup">Close</button>
+        </div>
+    </div>
+
+    <!-- FEEDBACK SUCCESS POPUP -->
+    <div id="feedback-success-popup" class="success-popup-overlay" aria-hidden="true">
+        <div class="success-popup" role="dialog" aria-modal="true"
+            aria-labelledby="feedback-success-title">
+            <div class="success-popup-icon" aria-hidden="true">✓</div>
+            <h2 id="feedback-success-title">Submission Successful!</h2>
+            <p>Thank you for your feedback. It helps us improve PAP.</p>
+            <button type="button" id="close-feedback-success-popup">Close</button>
+        </div>
+    </div>
+
+    <!-- GOOGLE MAPS API -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDanvyZEFhbB6u4jrsAmMKdJetSdKjoyKM"></script>
+    <script src="script.js"></script>
+</body>
+</html>
